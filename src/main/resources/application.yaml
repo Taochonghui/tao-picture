@@ -5,11 +5,19 @@ server:
 spring:
   application:
     name: tao-picture-backend
+  profiles:
+    active: local
+  # 开放更大的文件上传体积
+  servlet:
+    multipart:
+      max-file-size: 10MB
+
   datasource:
     url: jdbc:mysql://localhost:3306/tao_picture
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
+
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: false
