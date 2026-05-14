@@ -2,9 +2,18 @@ server:
   port: 8123
   servlet:
     context-path: /api
+    session:
+      # cookie 配置
+      cookie:
+        max-age: 2592000
 spring:
   application:
     name: tao-picture-backend
+  # session 配置
+  session:
+    store-type: redis
+    # session 30天过期
+    timeout: 2592000
   profiles:
     active: local
   # 开放更大的文件上传体积
@@ -17,6 +26,13 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
+  # Redis 配置
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    timeout: 5000
+    username: root
 
 mybatis-plus:
   configuration:

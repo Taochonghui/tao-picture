@@ -4,6 +4,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
 @MapperScan("com.tch.mapper")
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  * 存储位置：代理对象存储在 ThreadLocal中，线程安全
  */
 @EnableAspectJAutoProxy(exposeProxy = true)
+@EnableAsync
 public class TaoPictureBackendApplication {
 
     public static void main(String[] args) {
