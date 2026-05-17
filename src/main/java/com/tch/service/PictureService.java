@@ -3,10 +3,7 @@ package com.tch.service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.tch.model.dto.picture.PictureQueryRequest;
-import com.tch.model.dto.picture.PictureReviewRequest;
-import com.tch.model.dto.picture.PictureUploadByBatchRequest;
-import com.tch.model.dto.picture.PictureUploadRequest;
+import com.tch.model.dto.picture.*;
 import com.tch.model.entity.Picture;
 import com.tch.model.entity.User;
 import com.tch.model.vo.PictureVO;
@@ -96,4 +93,30 @@ public interface PictureService extends IService<Picture> {
      * @param oldPicture
      */
     void clearPictureFile(Picture oldPicture);
+
+    /**
+     * 删除图片
+     *
+     * @param pictureId
+     * @param loginUser
+     * @return
+     */
+    void deletePicture(long pictureId, User loginUser);
+
+    /**
+     * 编辑图片
+     *
+     * @param pictureEditRequest
+     * @param loginUser
+     */
+    void editPicture(PictureEditRequest pictureEditRequest, User loginUser);
+
+    /**
+     * 校验空间图片权限
+     *
+     * @param loginUser
+     * @param picture
+     */
+    void checkPictureAuth(User loginUser, Picture picture);
+
 }

@@ -3,10 +3,11 @@ package com.tch;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.session.SessionAutoConfiguration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.annotation.EnableAsync;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = SessionAutoConfiguration.class)
 @MapperScan("com.tch.mapper")
 /**
  * 核心功能：将当前的 AOP 代理对象暴露到 AopContext中
